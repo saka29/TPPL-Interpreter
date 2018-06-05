@@ -2,11 +2,16 @@
 By Saka.
 Bad, messy, and terrible because I'm not that good
 at Python. But it has a debug option!
-Place it in it's own folder along with a file named "code.txt" that contains the code,
-because Python does not have multiline inputs.
-See https://esolangs.org/wiki/TPPL'''
 
-file = open('code.txt')
+Because Python does not have multiline inputs, run from command line
+and put the name of the file to be run for example:
+
+interpreter.py hello.txt
+
+See https://esolangs.org/wiki/TPPL'''
+import sys
+
+file = open(sys.argv[1])
 code = file.read()
 code = code.splitlines()
 roll = [0]

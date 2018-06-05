@@ -1,0 +1,39 @@
+ENTER BATHROOM
+#A truth machine is a program that takes input 1 or 0.
+#If the input is 1, the program outputs "1" forever.
+#If the input is 0, the program outputs "0" and terminates.
+#See https://esolangs.org/wiki/Truth-machine
+SET
+RIP
+ADD
+ADD
+ADD
+ADD
+CHECK 1 YES? 19
+TRASH
+PULL
+WIPE
+PULL
+WIPE
+WIPE
+PULL
+WIPE
+RIP
+FLUSH
+EXIT
+TRASH
+WIPE
+PULL
+WIPE
+PULL
+WIPE
+WIPE
+PULL
+WIPE
+RIP
+FLUSH
+ADD
+ADD
+ADD
+ADD
+JUMP 20

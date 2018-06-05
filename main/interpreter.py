@@ -10,7 +10,6 @@ interpreter.py hello.txt
 
 See https://esolangs.org/wiki/TPPL'''
 import sys
-
 file = open(sys.argv[1])
 code = file.read()
 code = code.splitlines()
@@ -21,6 +20,17 @@ view = 0
 temp = ''
 done = False
 debug = False # Debug? True or False
+
+def ternary (n):
+    n = int(n)
+    if n == 0:
+        return '0'
+    nums = []
+    while n:
+        n, r = divmod(n, 3)
+        nums.append(str(r))
+    return ''.join(reversed(nums))
+
 if code[0] == 'ENTER BATHROOM' or code[0] == 'ENTER RESTROOM':
     point = 1
     while done == False:
@@ -39,6 +49,14 @@ if code[0] == 'ENTER BATHROOM' or code[0] == 'ENTER RESTROOM':
                 done = True
             else:
                 roll[view] = inp
+            point += 1
+        elif l=='GET':
+            inp = input('>>')
+            if len(inp) > 1:
+                print('ERROR: TOO MANY CHARACTERS')
+                done = True
+            else:
+                roll = roll + list(''.join(list(ternary(str(ord(inp))))))
             point += 1
         elif l=='ADD':
             roll = [0] + roll
@@ -63,14 +81,20 @@ if code[0] == 'ENTER BATHROOM' or code[0] == 'ENTER RESTROOM':
             n = l.split(' ')
             n = n[1]
             point = int(n)
-        elif 'CHECK' in l:
+        elif 'CHECK' in l and 'YES?' in l:
             spl = l.split(' ')
             s = spl[1]
             n = spl[3]
-            if hold==s:
-                point = int(n)
+            if int(s) > 2:
+                if hold==trash[int(s)-3]:
+                    point = int(n)
+                else:
+                    point += 1
             else:
-                point += 1
+                if hold==s:
+                    point = int(n)
+                else:
+                    point += 1
         elif l=='WIPE':
             if roll[view]<2:
                 roll[view]=roll[view]+1
@@ -119,6 +143,9 @@ if code[0] == 'ENTER BATHROOM' or code[0] == 'ENTER RESTROOM':
                 print('ERROR: HOLD IS EMPTY.')
                 done = True
             point += 1
+        elif l=='DISCARD':
+            hold = ''
+            point += 1
         elif l[0]=='#':
             point += 1
         else:
@@ -126,6 +153,3 @@ if code[0] == 'ENTER BATHROOM' or code[0] == 'ENTER RESTROOM':
             done = True
 else:
     print('ERROR: WHERE ARE WE?')
-                
-    
-

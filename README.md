@@ -22,5 +22,5 @@ replace myprogram.txt with the file you wish to run.
 ## Tutorial
 Coming soon, for now see https://esolangs.org/wiki/TPPL
 ## Possible Future Additions
-Arithmetic
-Relative jumps
+* Arithmetic
+* Relative jumps

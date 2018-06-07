@@ -23,4 +23,5 @@ replace myprogram.txt with the file you wish to run.
 Coming soon, for now see https://esolangs.org/wiki/TPPL
 ## Possible Future Additions
 * Arithmetic
-* Relative jumps
+* <s>Relative jumps</s> Done
+* Jump to a random one of specified lines (E.g. PLACEHOLDER 0 1 2 3 would jump to either line 0,1,2, or 3)

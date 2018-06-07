@@ -139,6 +139,15 @@ if code[0] == 'ENTER BATHROOM' or code[0] == 'ENTER RESTROOM':
                 print('ERROR: HOLD IS FULL.')
                 done = True
             point += 1
+        elif 'COPY' in l:
+            n = l.split(' ')
+            n = int(n[1])
+            if hold == '':
+                hold = trash[n]
+            else:
+                print('ERROR: HOLD IS FULL.')
+                done = True
+            point += 1
         elif l=='TRASH':
             if hold != '':
                 trash.append(hold)

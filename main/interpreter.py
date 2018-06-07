@@ -81,6 +81,10 @@ if code[0] == 'ENTER BATHROOM' or code[0] == 'ENTER RESTROOM':
             n = l.split(' ')
             n = n[1]
             point = int(n)
+        elif 'SPIN' in l:
+            n = l.split(' ')
+            n = n[1]
+            point += int(n)
         elif 'CHECK' in l and 'YES?' in l:
             spl = l.split(' ')
             s = spl[1]

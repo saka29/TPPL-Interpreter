@@ -42,7 +42,9 @@ if code[0] == 'ENTER BATHROOM' or code[0] == 'ENTER RESTROOM':
             print('Point: ',point)
             print('Instruction: ',l)
             print('Trash: ',trash)
-        if l=='SET':
+        if l[0]=='#':
+            point += 1
+        elif l=='SET':
             inp = int(input('>>'))
             if inp > 2 or inp < 0:
                 print('ERROR: INPUT OUT OF RANGE.')
@@ -159,10 +161,11 @@ if code[0] == 'ENTER BATHROOM' or code[0] == 'ENTER RESTROOM':
         elif l=='DISCARD':
             hold = ''
             point += 1
-        elif l[0]=='#':
-            point += 1
         else:
             print('ERROR: UNRECOGNISED COMMAND "',l,'"')
             done = True
 else:
     print('ERROR: WHERE ARE WE?')
+                
+    
+
